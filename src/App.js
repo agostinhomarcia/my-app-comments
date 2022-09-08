@@ -12,7 +12,10 @@ function App() {
   
   function typedMessage(event) {   
     setComments(event.target.value);
+
+ 
   }
+  
 
   function clickedButton() {
     const allPreviousComments = [...alltTheComments, comments]
