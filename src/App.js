@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import "./App.css";
 import Image from "./img/people.svg";
+import {Button, Container, List} from "./styles";
+
 
 
 function App() {
+  
   const [comments, setComments] = useState()
   const [alltTheComments, setalltTheComments ] = useState([])
 
 
-
-  
   function typedMessage(event) {   
     setComments(event.target.value);
 
@@ -24,21 +25,21 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <div className="container-itens">
+    <Container >
+      
       <img className="img" alt="imagem-pessoas" src={Image} />
-      <textarea className="box-comment" onChange={typedMessage}></textarea>
-      <button className="btn" onClick={clickedButton}>Comentar</button>
+      <textarea  onChange={typedMessage}></textarea>
+      <Button isOn={comments} onClick={clickedButton}>Comentar</Button>
 
-      <ul>
+      <List>
         {alltTheComments.map(coment =>(
-          <li className="comment" key={coment}>{coment} </li>
+          <li key={coment}>{coment} </li>
         ))}
         
         
-      </ul>
-      </div>
-    </div>
+      </List>
+      
+    </Container>
   );
   }
 
